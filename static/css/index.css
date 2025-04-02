@@ -1,0 +1,210 @@
+/* ฟอนต์ Poker สไตล์ */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&display=swap');
+
+/* Global Styles */
+body {
+    font-family: 'Playfair Display', sans-serif;
+    background: radial-gradient(circle, #3e3b3b, #000000);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInEffect 1.2s ease-out forwards;
+    transition: opacity 1s ease-in-out, filter 1s ease-in-out;
+}
+
+body.blur-out {
+    opacity: 0;
+    filter: blur(10px); 
+}
+
+@keyframes fadeInEffect {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.transitioning {
+    pointer-events: none;
+    overflow: hidden;
+}
+
+/* Container สำหรับไพ่ */
+.card-fall-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    pointer-events: none;
+}
+
+/* ไพ่แต่ละใบ */
+/* ส่วนที่แก้ไข */
+.falling-card {
+    width: 10vw;
+    height: 15vw;
+    max-width: 150px;
+    max-height: 190px;
+    background: url('../images/spades.png') center/cover no-repeat;
+    position: absolute;
+    top: -200px;
+    left: var(--start-left);
+    opacity: 0;
+    transform: rotate(0deg);
+    transition: top 2.5s ease-out, opacity 0.6s ease-in-out, transform 2.5s ease-out; /* ปรับจาก 1s เป็น 2s */
+}
+
+/* แก้ไขให้วนครบ 4 suits */
+.falling-card:nth-child(4n+1) {
+    background: url('../images/spades.png') center/cover no-repeat;
+}
+
+.falling-card:nth-child(4n+2) {
+    background: url('../images/heart.png') center/cover no-repeat;
+}
+
+.falling-card:nth-child(4n+3) {
+    background: url('../images/club.png') center/cover no-repeat;
+}
+
+.falling-card:nth-child(4n+0) {
+    background: url('../images/diamond.png') center/cover no-repeat;
+}
+
+.falling-card.active {
+    opacity: 1;
+    top: var(--end-top);
+    transform: rotate(var(--rotate-angle));
+}
+
+.falling-card.fade-out {
+    opacity: 0;
+    transition: opacity 1s ease-in-out; /* Fade หายไปใน 1 วินาที */
+}
+
+/* Container ของไอคอนไพ่ */
+.card-icons-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* สไตล์ของไอคอนไพ่ */
+.card-icon {
+    position: absolute;
+    font-size: 3.5rem;
+    opacity: 0;
+    animation: floatFade 3.5s ease-in-out infinite;
+    color: rgba(255, 255, 255, 0.1);
+    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
+}
+
+/* เอฟเฟกต์โผล่มาและหายไป */
+@keyframes floatFade {
+    0% { opacity: 0; transform: translateY(10px) scale(0.8) rotate(0deg); }
+    50% { opacity: 1; transform: translateY(-30px) scale(1) rotate(5deg); }
+    100% { opacity: 0; transform: translateY(-60px) scale(1.2) rotate(-5deg); }
+}
+
+/* Welcome Text */
+.welcome-text {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: white;
+    text-shadow: 4px 4px 0 #ff3b3b;
+    transition: transform 0.3s ease-in-out;
+    text-transform: uppercase;
+}
+
+.welcome-text:hover {
+    transform: scale(1.1);
+}
+
+/* p class text */
+.lead {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white;
+    text-shadow: 2px 2px 0 #000000;
+    margin: 40px 0;
+    line-height: 1.6;
+    letter-spacing: 0.05em;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* ปุ่ม */
+.button-group button {
+    background: linear-gradient(145deg, #ff0000, #b30000);
+    color: white;
+    border-radius: 50px;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 5px 15px rgba(255, 0, 0, 0.5);
+    border: 2px solid white;
+    position: relative;
+    overflow: hidden;
+    margin: 0 10px;
+    z-index: 100;
+}
+
+.button-group button:hover {
+    background: linear-gradient(145deg, #ff4d4d, #d40000);
+    transform: scale(1.05);
+    box-shadow: 0px 10px 25px rgba(255, 0, 0, 0.8);
+}
+
+.button-group button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: skewX(-30deg);
+    transition: left 0.5s ease-in-out;
+}
+
+.button-group button:hover::before {
+    left: 100%;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .welcome-text { font-size: 2.5rem; }
+    .lead { font-size: 1.2rem; }
+    .button-group button { padding: 10px 30px; margin-top: 10px; font-size: 1rem; }
+}
+
+@media (max-width: 480px) {
+    .welcome-text { font-size: 2rem; }
+    .lead { font-size: 1rem; }
+    .button-group button { padding: 8px 20px; margin-top: 10px; font-size: 0.9rem; }
+}
+
+@media (max-width: 240px) {
+    .welcome-text { font-size: 1.5rem; }
+    .lead { font-size: 0.8rem; }
+    .button-group button { padding: 8px 20px; margin-top: 10px; font-size: 0.7rem; }
+}

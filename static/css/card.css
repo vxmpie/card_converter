@@ -1,0 +1,196 @@
+/* ฟอนต์ Poker สไตล์ */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&display=swap');
+
+body {
+    font-family: 'Playfair Display', sans-serif;
+    background: radial-gradient(circle, #3e3b3b, #000000);
+    color: white;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    text-align: center;
+    position: relative; 
+    z-index: 0; 
+}
+
+.header {
+    padding: 40px 20px;
+    position: relative;
+    z-index: 2; 
+}
+
+.welcome-text {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: white;
+    text-shadow: 4px 4px 0 #ff3b3b;
+    text-transform: uppercase;
+}
+
+.lead {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white;
+    text-shadow: 2px 2px 0 #000000;
+    margin: 20px 0;
+}
+
+.card-components {
+    padding: 40px 20px;
+    position: relative;
+    z-index: 2; 
+}
+
+.card-components h2 {
+    font-size: 2rem;
+    text-shadow: 2px 2px 0 #ff3b3b;
+    margin-bottom: 30px;
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 150px;
+    height: 190px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease;
+    cursor: pointer;
+}
+
+.card.flipped {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.5);
+}
+
+.card-front {
+    background: white;
+}
+
+.card-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.card-back {
+    background: linear-gradient(145deg, #ff0000, #b30000);
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 10px;
+}
+
+.card-back h3 {
+    font-size: 1.2rem;
+    margin: 0 0 10px;
+}
+
+.card-back table {
+    width: 100%;
+    font-size: 0.9rem;
+    border-collapse: collapse;
+}
+
+.card-back th, .card-back td {
+    padding: 5px;
+    border: 1px solid white;
+}
+
+.pbn-upload {
+    padding: 40px 20px;
+    position: relative;
+    z-index: 2; 
+}
+
+.pbn-upload h2 {
+    font-size: 2rem;
+    text-shadow: 2px 2px #ff3b3b;
+    margin-bottom: 20px;
+}
+
+.pbn-upload input[type="file"] {
+    display: block;
+    margin: 20px auto;
+    padding: 10px;
+    background: #fff;
+    border-radius: 5px;
+    color: #000;
+}
+
+.btn {
+    background: linear-gradient(145deg, #ff0000, #b30000);
+    color: white;
+    border-radius: 50px;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.5);
+    border: 2px solid white;
+}
+
+.btn:hover {
+    background: linear-gradient(145deg, #ff4d4d, #d40000);
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(255, 0, 0, 0.8);
+}
+
+.card-icons-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1; 
+    pointer-events: none; 
+}
+
+.card-icon {
+    position: absolute;
+    font-size: 3.5rem;
+    opacity: 0;
+    animation: floatFade 3.5s ease-in-out infinite;
+    color: rgba(255, 255, 255, 0.1);
+    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
+    z-index: 1; 
+}
+
+@keyframes floatFade {
+    0% { opacity: 0; transform: translateY(10px) scale(0.8) rotate(0deg); }
+    50% { opacity: 1; transform: translateY(-30px) scale(1) rotate(5deg); }
+    100% { opacity: 0; transform: translateY(-60px) scale(1.2) rotate(-5deg); }
+}
+
+#music-control {
+    z-index: 100; 
+}
+
+@media (max-width: 768px) {
+    .welcome-text { font-size: 2.5rem; }
+    .lead { font-size: 1.2rem; }
+    .card { width: 120px; height: 152px; }
+    .card-back h3 { font-size: 1rem; }
+    .card-back table { font-size: 0.8rem; }
+    .btn { padding: 10px 30px; font-size: 1rem; }
+}

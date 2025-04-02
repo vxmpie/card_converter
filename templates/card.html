@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Components</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/card.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/music.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='images/poker.png') }}">
+</head>
+<body>
+    <div class="card-icons-container" id="cardIconsContainer"></div>
+
+    <div id="music-control">
+        <img id="music-icon" src="{{ url_for('static', filename='images/music-icon.png') }}" alt="Music Control">
+    </div>
+
+    <header class="header">
+        <h1 class="welcome-text">♠️ Card Components ♦️</h1>
+        <p class="lead">Learn about card parts and convert your PBN files</p>
+    </header>
+
+    <section class="card-components">
+        <h2>ส่วนประกอบของไพ่</h2>
+        <div class="card-container">
+            <div class="card" data-direction="North">
+                <div class="card-front">
+                    <img src="{{ url_for('static', filename='images/spades.png') }}" alt="Spades">
+                </div>
+                <div class="card-back">
+                    <h3>North</h3>
+                    <table>
+                        <tr><th>Suit</th><th>Cards</th></tr>
+                        <tr><td>♠️</td><td>A K Q</td></tr>
+                        <tr><td>♥️</td><td>J 10</td></tr>
+                        <tr><td>♦️</td><td>9 8</td></tr>
+                        <tr><td>♣️</td><td>7 6</td></tr>
+                    </table>
+                </div>
+            </div>
+            <div class="card" data-direction="East">
+                <div class="card-front">
+                    <img src="{{ url_for('static', filename='images/heart.png') }}" alt="Hearts">
+
+                </div>
+                <div class="card-back">
+                    <h3>East</h3>
+                    <table>
+                        <tr><th>Suit</th><th>Cards</th></tr>
+                        <tr><td>♠️</td><td>J 10</td></tr>
+                        <tr><td>♥️</td><td>A K Q</td></tr>
+                        <tr><td>♦️</td><td>7 6</td></tr>
+                        <tr><td>♣️</td><td>9 8</td></tr>
+                    </table>
+                </div>
+            </div>
+            <div class="card" data-direction="South">
+                <div class="card-front">
+                    <img src="{{ url_for('static', filename='images/club.png') }}" alt="Clubs">
+
+                </div>
+                <div class="card-back">
+                    <h3>South</h3>
+                    <table>
+                        <tr><th>Suit</th><th>Cards</th></tr>
+                        <tr><td>♠️</td><td>9 8</td></tr>
+                        <tr><td>♥️</td><td>7 6</td></tr>
+                        <tr><td>♦️</td><td>A K Q</td></tr>
+                        <tr><td>♣️</td><td>J 10</td></tr>
+                    </table>
+                </div>
+            </div>
+            <div class="card" data-direction="West">
+                <div class="card-front">
+                    <img src="{{ url_for('static', filename='images/diamond.png') }}" alt="Diamonds">
+
+                </div>
+                <div class="card-back">
+                    <h3>West</h3>
+                    <table>
+                        <tr><th>Suit</th><th>Cards</th></tr>
+                        <tr><td>♠️</td><td>7 6</td></tr>
+                        <tr><td>♥️</td><td>9 8</td></tr>
+                        <tr><td>♦️</td><td>J 10</td></tr>
+                        <tr><td>♣️</td><td>A K Q</td></tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pbn-upload">
+        <h2>Convert PBN to PDF</h2>
+        <label for="pbnFile">Select PBN file:</label>
+
+        <!-- <input type="file" id="pbnFile" accept=".pbn" title="Choose a PBN file to convert" placeholder="Select your PBN file">
+        <input type="file" name="file" accept=".pbn"> 
+        <button id="convertButton" class="btn btn-lg" type="submit" >Convert to PDF</button> -->
+
+
+        <div class="container">
+            <!-- <h1>PBN File Analyzer</h1> -->
+            <form id="uploadForm" action="/" method="POST" enctype="multipart/form-data">
+                <input type="file" name="file" id="pbnFile" accept=".pbn">
+                <button type="button" id="convertButton" class="btn btn-lg">Convert to PDF</button>
+            </form>
+            <!-- แสดงข้อมูลของแต่ละบอร์ด -->
+    </section>
+
+    <script src="{{ url_for('static', filename='js/bg.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/card.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/music.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Converter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/music.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='images/poker.png') }}">
+</head>
+<body>
+    <div class="card-fall-container" id="cardFallContainer"></div>
+    <div class="card-icons-container" id="cardIconsContainer"></div>
+    <div class="welcome-container">
+        <h1 class="welcome-text">♠️ Welcome to Card Converter ♦️</h1>
+        <p class="lead">Select the mode</p>
+        <div class="button-group">
+            <button id="enterWithMusic" class="btn btn-lg" data-target="/card">🎷 Enter with music</button>
+            <button id="enterWithoutMusic" class="btn btn-lg" data-target="/card">🔇 Enter with silent</button>
+    </div>
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/music.js') }}"></script>
+</body>
+</html>

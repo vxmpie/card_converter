@@ -1,0 +1,176 @@
+
+
+
+.container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: auto;
+    height: 100%;
+    max-height: 100%;
+    width: 100%;
+    max-width: 100%;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    width: fit-content; 
+    justify-content: center;
+    
+    border: 3px solid black; /* เส้นขอบสีดำ */
+    padding: 10px; /* เพิ่มระยะขอบใน */
+    border-radius: 10px; /* ทำให้มุมโค้ง */
+}
+
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 คอลัมน์ */
+    grid-gap: 20px; /* ระยะห่างระหว่างการ์ด */
+    justify-items: center; /* จัดการ์ดให้อยู่กลางคอลัมน์ */
+    padding: 20px;
+    max-width: 900px; /* ขนาดที่เหมาะสมกับการแสดง 3 คอลัมน์ */
+    margin: 0 auto;
+    background-color: #ffffff;
+}
+
+.cell-title {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.cell {
+    padding: 10px;
+    border: 1px solid #ffffff; 
+    text-align: center;
+    font-size: 16px;
+    color: #ffffff; 
+    display: flex;
+    flex-direction: column;
+}
+
+.group-wrapper {
+    /* display: flex;
+    flex-wrap: wrap; */
+    justify-content: center; /* จัดการ์ดให้อยู่กลางแถว */
+    width: 100%;
+}
+
+
+.group-title {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    color: black; /* ให้ตัวหนังสือเป็นสีดำ */
+    margin-bottom: 15px;
+}
+
+.direction-table {
+    width: 63mm; /* กำหนดขนาดกว้างเท่าไพ่ */
+    height: 95mm; /* กำหนดขนาดสูงเท่าไพ่ */
+    background-color: white;
+    border: 2px solid black;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 คอลัมน์ */
+    grid-template-rows: repeat(5, auto); /* 5 แถว */
+    gap: 2px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.direction-cell {
+    display: flex; /* ใช้ flexbox เพื่อจัดให้อยู่ตรงกลาง */
+    align-items: center; /* จัดให้อยู่กึ่งกลางแนวตั้ง */
+    justify-content: center; /* จัดให้อยู่กึ่งกลางแนวนอน */
+    border: 1px solid black;
+    padding: 15px;
+    text-align: center;
+    background-color: white;
+    color: black;
+    font-size: 22px;
+    font-weight: bold;
+    text-transform: uppercase; /* ทำให้ตัวอักษรเป็นตัวใหญ่ */
+    margin-bottom: 5px;
+}
+
+#print-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 8px;
+}
+
+#print-btn:hover {
+    background-color: #154417;
+}
+
+#print-btn:disabled {
+    cursor: not-allowed; /* เปลี่ยนเมาส์เป็นรูปกากบาท */
+    opacity: 0.6; /* ลดความโปร่งใสให้ดูว่าใช้งานไม่ได้ */
+    pointer-events: none; /* ปิดการคลิก */
+}
+
+
+
+/* Media Queries สำหรับมือถือ */
+@media (max-width: 600px) {
+    #board {
+        grid-template-columns: 1fr;
+    }
+
+    .cell {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    #print-btn {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}
+
+/* Media Queries สำหรับแท็บเล็ต */
+@media (min-width: 601px) and (max-width: 900px) {
+    #board {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cell {
+        width: 100%;
+        font-size: 15px;
+    }
+
+    #print-btn {
+        font-size: 15px;
+        padding: 10px 18px;
+    }
+}
+
+/* Media Queries สำหรับเดสก์ท็อป */
+@media (min-width: 901px) {
+    #board {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .cell {
+        width: 100%;
+        max-width: 250px;
+        font-size: 16px;
+    }
+
+    #print-btn {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+}
