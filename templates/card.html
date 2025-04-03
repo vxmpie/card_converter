@@ -11,7 +11,7 @@
 <body>
     <div class="card-icons-container" id="cardIconsContainer"></div>
 
-    <div id="music-control">
+    <div id="music-control" data-music-url="{{ url_for('static', filename='music/Jazz.mp3') }}">
         <img id="music-icon" src="{{ url_for('static', filename='images/music-icon.png') }}" alt="Music Control">
     </div>
 
@@ -104,7 +104,6 @@
                 <input type="file" name="file" id="pbnFile" accept=".pbn">
                 <button type="button" id="convertButton" class="btn btn-lg">Convert to PDF</button>
             </form>
-            <!-- แสดงข้อมูลของแต่ละบอร์ด -->
     </section>
 
     <script src="{{ url_for('static', filename='js/bg.js') }}"></script>

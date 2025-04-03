@@ -56,16 +56,14 @@ document.addEventListener("DOMContentLoaded", function() {
                 }, row * 200);
             }
 
-            // รอให้ไพ่ตกลงมาหมด แล้ว Blur + Fade Out ทั้งหน้า
             setTimeout(() => {
                 document.body.classList.add("blur-out");
-                console.log("Blur out started"); // ตรวจสอบว่า Blur ทำงาน
+                console.log("Blur out started");
 
-                // รอให้ Blur + Fade เสร็จ แล้วเปลี่ยนหน้า
                 setTimeout(() => {
                     window.location.href = targetPage;
-                }, 1000); // รอ 1 วินาทีให้ Blur + Fade จบ
-            }, rows * 250 + 2000); // รอไพ่ตกลงมาหมด (2 วินาทีหลังแถวสุดท้าย)
+                }, 1000); 
+            }, rows * 250 + 2000);
         });
     });
 });

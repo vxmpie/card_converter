@@ -6,7 +6,7 @@ from fpdf import FPDF
 
 app = Flask(__name__)
 
-app.secret_key = 'your_secret_key'  # สำหรับใช้ session
+app.secret_key = 'your_secret_key'  
 UPLOAD_FOLDER = 'uploads'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -83,26 +83,23 @@ def upload_file():
             
             boards, all_card_tracking = process_pbn(filename)
             
-            # เก็บข้อมูลไว้ใน session
             session['boards'] = boards
             session['all_card_tracking'] = all_card_tracking
             
-            # ส่งกลับ JSON พร้อม redirect_url
             return jsonify({
                 'success': True,
                 'redirect_url': url_for('convert_page')
             })
 
-    return render_template('index.html')  # ถ้าเป็น GET หรือไม่ใช่ POST จะคืนค่า form
+    return render_template('index.html') 
 
 @app.route('/convert')
 def convert_page():
     boards = session.get('boards', None)
     all_card_tracking = session.get('all_card_tracking', None)
     
-    # ตรวจสอบว่ามีข้อมูลใน session หรือไม่
     if boards is None or all_card_tracking is None:
-        return redirect(url_for('upload_file'))  # ถ้าไม่มีข้อมูลให้กลับไปที่หน้าอัปโหลด
+        return redirect(url_for('upload_file')) 
     
     return render_template('convert.html', boards=boards, all_card_tracking=all_card_tracking)
 

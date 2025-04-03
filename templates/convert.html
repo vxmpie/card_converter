@@ -5,32 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Convert PBN to PDF</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/board.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/card.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/music.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/convert.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='images/poker.png') }}">
 </head>
 <body>
+    <div class="card-icons-container" id="cardIconsContainer"></div>
+
+    <div id="music-control" data-music-url="{{ url_for('static', filename='music/Jazz.mp3') }}">
+        <img id="music-icon" src="{{ url_for('static', filename='images/music-icon.png') }}" alt="Music Control">
+    </div>
+
+    <header class="header">
+        <h1 class="welcome-text">♠️ Conversion Complete ♦️</h1>
+        <p class="lead">Your PBN file is ready to download</p>
+        <a id="print-btn" class="btn">Download</a>
+        <div class="progress-container">
+            <div class="progress-bar"></div>
+            <span class="progress-card">🃏</span>
+        </div>
+        <p id="status" style="display: none;"></p>
+    </header>
+
     <div class="container">
-
-
-        <h2>🔄 แปลงไฟล์เป็น PDF</h2>
-        <button id="convertBtn">เริ่มแปลง</button>
-        <p id="status"></p>
-        <a id="print-btn" class="hidden">📥 ดาวน์โหลด PDF</a>
-        <div class="grid" id="board"></div>
-
+        <section class="convert-section">
+            <h2>🎲 Result</h2>
+            <div class="grid" id="board"></div>
+        </section>
 
         {% if all_card_tracking %}
-        <pre id="cardTrackingData">
+        <pre id="cardTrackingData" style="display: none;">
             {% for card, positions in all_card_tracking.items() %}{{ card }}={{ positions }}
             {% endfor %}
         </pre>
         {% endif %}
     </div>
 
+    <script src="{{ url_for('static', filename='js/bg.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/music.js') }}"></script>
     <script src="{{ url_for('static', filename='js/board.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+</body>
+</html>
+
     <!-- <script>
         document.getElementById("print-btn").addEventListener("click", async function () {
             const printBtn = document.getElementById("print-btn");
@@ -96,5 +115,4 @@
 
         });
     </script> -->
-</body>
-</html>
+

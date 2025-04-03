@@ -1,7 +1,5 @@
-/* ฟอนต์ Poker สไตล์ */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&display=swap');
 
-/* Global Styles */
 body {
     font-family: 'Playfair Display', sans-serif;
     background: radial-gradient(circle, #3e3b3b, #000000);
@@ -36,7 +34,6 @@ body.blur-out {
     overflow: hidden;
 }
 
-/* Container สำหรับไพ่ */
 .card-fall-container {
     position: fixed;
     top: 0;
@@ -51,8 +48,6 @@ body.blur-out {
     pointer-events: none;
 }
 
-/* ไพ่แต่ละใบ */
-/* ส่วนที่แก้ไข */
 .falling-card {
     width: 10vw;
     height: 15vw;
@@ -67,7 +62,6 @@ body.blur-out {
     transition: top 2.5s ease-out, opacity 0.6s ease-in-out, transform 2.5s ease-out; /* ปรับจาก 1s เป็น 2s */
 }
 
-/* แก้ไขให้วนครบ 4 suits */
 .falling-card:nth-child(4n+1) {
     background: url('../images/spades.png') center/cover no-repeat;
 }
@@ -92,10 +86,9 @@ body.blur-out {
 
 .falling-card.fade-out {
     opacity: 0;
-    transition: opacity 1s ease-in-out; /* Fade หายไปใน 1 วินาที */
+    transition: opacity 1s ease-in-out; 
 }
 
-/* Container ของไอคอนไพ่ */
 .card-icons-container {
     position: absolute;
     top: 0;
@@ -106,7 +99,6 @@ body.blur-out {
     z-index: 1;
 }
 
-/* สไตล์ของไอคอนไพ่ */
 .card-icon {
     position: absolute;
     font-size: 3.5rem;
@@ -116,14 +108,12 @@ body.blur-out {
     text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
 }
 
-/* เอฟเฟกต์โผล่มาและหายไป */
 @keyframes floatFade {
     0% { opacity: 0; transform: translateY(10px) scale(0.8) rotate(0deg); }
     50% { opacity: 1; transform: translateY(-30px) scale(1) rotate(5deg); }
     100% { opacity: 0; transform: translateY(-60px) scale(1.2) rotate(-5deg); }
 }
 
-/* Welcome Text */
 .welcome-text {
     font-size: 3.5rem;
     font-weight: 800;
@@ -137,7 +127,6 @@ body.blur-out {
     transform: scale(1.1);
 }
 
-/* p class text */
 .lead {
     font-size: 1.5rem;
     font-weight: 600;
@@ -149,7 +138,6 @@ body.blur-out {
     transition: transform 0.3s ease-in-out;
 }
 
-/* ปุ่ม */
 .button-group button {
     background: linear-gradient(145deg, #ff0000, #b30000);
     color: white;
@@ -190,7 +178,22 @@ body.blur-out {
     left: 100%;
 }
 
-/* Media Queries */
+.skip-cutscene {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.7rem;
+    color: white;
+    text-decoration: none;
+    text-shadow: 1px 1px 0 #ff3b3b;
+    z-index: 2;
+}
+
+.skip-cutscene:hover {
+    color: #ff4d4d;
+}
+
 @media (max-width: 768px) {
     .welcome-text { font-size: 2.5rem; }
     .lead { font-size: 1.2rem; }

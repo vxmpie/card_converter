@@ -1,4 +1,3 @@
-/* ปุ่มควบคุมเพลง */
 #music-control {
     position: fixed;
     bottom: 20px;
@@ -9,30 +8,26 @@
     z-index: 100;
 }
 
-/* ไอคอนเพลง */
 #music-icon {
-    width: 50px; /* ความกว้างของไอคอน */
-    transition: transform 0.3s ease; /* การเปลี่ยนแปลงขนาด */
+    width: 50px; 
+    transition: transform 0.3s ease;
 }
 
-/* การเปลี่ยนแปลงขนาดเมื่อชี้ */
 #music-icon:hover {
-    transform: scale(1.2); /* ขยายขนาด */
+    transform: scale(1.2); 
 }
 
-/* การหมุนของไอคอน */
 @keyframes spin {
     from {
-        transform: rotate(0deg); /* เริ่มหมุนจาก 0 องศา */
+        transform: rotate(0deg); 
     }
     to {
-        transform: rotate(360deg); /* หมุนครบ 360 องศา */
+        transform: rotate(360deg); 
     }
 }
 
-/* ตั้งค่าให้ไอคอนหมุน */
 .spin-animation {
-    animation: spin 2s linear infinite; /* หมุนตลอดเวลา */
+    animation: spin 2s linear infinite;
 }
 
 @media screen and (max-width: 768px) {

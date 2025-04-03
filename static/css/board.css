@@ -1,6 +1,3 @@
-
-
-
 .container {
     text-align: center;
     display: flex;
@@ -20,19 +17,18 @@
     width: fit-content; 
     justify-content: center;
     
-    border: 3px solid black; /* เส้นขอบสีดำ */
-    padding: 10px; /* เพิ่มระยะขอบใน */
-    border-radius: 10px; /* ทำให้มุมโค้ง */
+    border: 3px solid black; 
+    padding: 10px;
+    border-radius: 10px; 
 }
-
 
 #board {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 คอลัมน์ */
-    grid-gap: 20px; /* ระยะห่างระหว่างการ์ด */
-    justify-items: center; /* จัดการ์ดให้อยู่กลางคอลัมน์ */
+    grid-template-columns: repeat(3, 1fr); 
+    grid-gap: 20px;
+    justify-items: center; 
     padding: 20px;
-    max-width: 900px; /* ขนาดที่เหมาะสมกับการแสดง 3 คอลัมน์ */
+    max-width: 900px; 
     margin: 0 auto;
     background-color: #ffffff;
 }
@@ -54,38 +50,35 @@
 }
 
 .group-wrapper {
-    /* display: flex;
-    flex-wrap: wrap; */
-    justify-content: center; /* จัดการ์ดให้อยู่กลางแถว */
+    justify-content: center; 
     width: 100%;
 }
-
 
 .group-title {
     font-size: 18px;
     font-weight: bold;
     text-align: center;
-    color: black; /* ให้ตัวหนังสือเป็นสีดำ */
+    color: black; 
     margin-bottom: 15px;
 }
 
 .direction-table {
-    width: 63mm; /* กำหนดขนาดกว้างเท่าไพ่ */
-    height: 95mm; /* กำหนดขนาดสูงเท่าไพ่ */
+    width: 63mm; 
+    height: 95mm;
     background-color: white;
     border: 2px solid black;
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 คอลัมน์ */
-    grid-template-rows: repeat(5, auto); /* 5 แถว */
+    grid-template-columns: repeat(4, 1fr); 
+    grid-template-rows: repeat(5, auto);
     gap: 2px;
     padding: 5px;
     border-radius: 5px;
 }
 
 .direction-cell {
-    display: flex; /* ใช้ flexbox เพื่อจัดให้อยู่ตรงกลาง */
-    align-items: center; /* จัดให้อยู่กึ่งกลางแนวตั้ง */
-    justify-content: center; /* จัดให้อยู่กึ่งกลางแนวนอน */
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
     border: 1px solid black;
     padding: 15px;
     text-align: center;
@@ -93,7 +86,7 @@
     color: black;
     font-size: 22px;
     font-weight: bold;
-    text-transform: uppercase; /* ทำให้ตัวอักษรเป็นตัวใหญ่ */
+    text-transform: uppercase; 
     margin-bottom: 5px;
 }
 
@@ -116,14 +109,11 @@
 }
 
 #print-btn:disabled {
-    cursor: not-allowed; /* เปลี่ยนเมาส์เป็นรูปกากบาท */
-    opacity: 0.6; /* ลดความโปร่งใสให้ดูว่าใช้งานไม่ได้ */
-    pointer-events: none; /* ปิดการคลิก */
+    cursor: not-allowed;
+    opacity: 0.6; 
+    pointer-events: none; 
 }
 
-
-
-/* Media Queries สำหรับมือถือ */
 @media (max-width: 600px) {
     #board {
         grid-template-columns: 1fr;
@@ -140,7 +130,6 @@
     }
 }
 
-/* Media Queries สำหรับแท็บเล็ต */
 @media (min-width: 601px) and (max-width: 900px) {
     #board {
         grid-template-columns: repeat(2, 1fr);
@@ -157,7 +146,6 @@
     }
 }
 
-/* Media Queries สำหรับเดสก์ท็อป */
 @media (min-width: 901px) {
     #board {
         grid-template-columns: repeat(3, 1fr);
